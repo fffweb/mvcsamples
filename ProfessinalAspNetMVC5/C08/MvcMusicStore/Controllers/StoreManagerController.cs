@@ -9,9 +9,7 @@ using MvcMusicStore.Models;
 
 namespace MvcMusicStore.Controllers
 {
-    //Note: authorization has been disabled to simplify testing the custom validator.
-    //
-    //[Authorize(Roles = "Administrator")]
+    [Authorize(Roles = "Administrator")]
     public class StoreManagerController : Controller
     {
         private MusicStoreEntities db = new MusicStoreEntities();

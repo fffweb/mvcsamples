@@ -20,6 +20,25 @@ namespace MvcMusicStore.Controllers
             return View(albums);
         }
 
+        public ActionResult ArtistSearch(string q)
+        {
+            var artists = GetArtists(q);
+            return PartialView("_ArtistSearch", artists);
+        }
+
+        public ActionResult QuickSearch(string term)
+        {
+            var artists = GetArtists(term).Select(a => new { value = a.Name });
+
+            return Json(artists, JsonRequestBehavior.AllowGet);
+        }
+
+        private List<Artist> GetArtists(string searchString)
+        {
+            return storeDB.Artists
+                .Where(a => a.Name.Contains(searchString))
+                .ToList();
+        }
 
         private List<Album> GetTopSellingAlbums(int count)
         {
@@ -29,20 +48,6 @@ namespace MvcMusicStore.Controllers
             return storeDB.Albums
                 .OrderByDescending(a => a.OrderDetails.Count())
                 .Take(count)
-                .ToList();
-        }
-
-        public ActionResult ArtistSearch(string q)
-        {
-            var artists = GetArtists(q);
-
-            return PartialView("_ArtistSearch", artists);
-        }
-
-        private List<Artist> GetArtists(string searchString)
-        {
-            return storeDB.Artists
-                .Where(a => a.Name.Contains(searchString))
                 .ToList();
         }
 
@@ -63,6 +68,5 @@ namespace MvcMusicStore.Controllers
             album.Price *= 0.5m;
             return album;
         }
-
     }
 }
