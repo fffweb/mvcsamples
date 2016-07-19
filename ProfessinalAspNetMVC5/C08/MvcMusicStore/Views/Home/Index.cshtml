@@ -11,14 +11,14 @@
     <div class="panel-heading">Artist search</div>
     <div class="panel-body">
         @using (Ajax.BeginForm("ArtistSearch", "Home",
-           new AjaxOptions
-           {
-               InsertionMode = InsertionMode.Replace,
-               HttpMethod = "GET",
-               OnFailure = "searchFailed",
-               LoadingElementId = "ajax-loader",
-               UpdateTargetId = "searchresults",
-           }))
+   new AjaxOptions
+   {
+       InsertionMode = InsertionMode.Replace,
+       HttpMethod = "GET",
+       OnFailure = "searchFailed",
+       LoadingElementId = "ajax-loader",
+       UpdateTargetId = "searchresults",
+   }))
         {
             <input type="text" name="q" />
             <input type="submit" value="search" />
@@ -26,6 +26,7 @@
                  src="@Url.Content("~/Images/ajax-loader.gif")"
                  style="display:none" />
         }
+
         <div id="searchresults"></div>
     </div>
 </div>
@@ -42,8 +43,8 @@
     }
 </ul>
 
-<div id="dailydeal">
-    @Ajax.ActionLink("Click here to see today's special!",
+    <div id="dailydeal">
+        @Ajax.ActionLink("Click here to see today's special!",
         "DailyDeal",
         null,
         new AjaxOptions
@@ -53,9 +54,9 @@
             HttpMethod = "GET"
         },
         new { @class = "btn btn-primary" })
-</div>
+    </div>
 
-@section Scripts {
-    <script src="~/Scripts/App/MusicScripts.js"></script>
-    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
-}
+    @section Scripts {
+        <script src="~/Scripts/App/MusicScripts.js"></script>
+        <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    }

@@ -11,12 +11,11 @@ namespace MvcMusicStore.Models
 
         public int GenreId { get; set; }
 
-
         public int ArtistId { get; set; }
 
         [Required]
         [StringLength(160, MinimumLength = 2)]
-
+        [MaxWords(10)]
         public string Title { get; set; }
 
         [Required]
