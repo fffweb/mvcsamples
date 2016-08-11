@@ -83,6 +83,22 @@ namespace UrlsAndRoutes.Tests {
         }
 
         [TestMethod]
+        public void TestSimpleRoute()
+        {
+            //TestRouteMatch("~/Xadmin", "Admin", "Index");
+
+            TestRouteMatch("~/Admin/Index", "Admin", "Index");
+            TestRouteMatch("~/Admin", "Admin", "Index");
+            TestRouteMatch("~/", "Admin", "Index");
+
+            //Test static
+            TestRouteMatch("~/Public/", "Admin", "Index");
+            
+            //TestRouteFail("~/Admin");
+
+        }
+
+        [TestMethod]
         public void TestIncomingRoutes() {
 
             TestRouteMatch("~/", "Home", "Index");
