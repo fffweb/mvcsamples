@@ -1,0 +1,31 @@
+﻿
+@{
+    Layout = null;
+}
+
+@helper ListArrayItems(string[] items)
+{
+    foreach (string item in items)
+    {
+        <b>@item</b>
+    }
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>IndexInline</title>
+</head>
+<body>
+    <div>
+        Here are the fruits:@ListArrayItems(ViewBag.Fruits)
+
+    </div>
+
+    <div>
+        Here are the Cities:@ListArrayItems(ViewBag.Cities)
+
+    </div>
+</body>
+</html>

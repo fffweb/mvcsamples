@@ -1,0 +1,62 @@
+﻿@model HelperMethods.Models.Person
+@{
+    ViewBag.Title = "CreatePersonH";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CreatePersonH</h2>
+
+@*@{Html.BeginForm();}*@
+@using (Html.BeginForm())
+{
+    <div class="dateElem">
+        <label>PersonID</label>
+        <input name="personId" value="@Model.PersonId" />
+    </div>
+
+    <div class="dateElem">
+        <label>First Name</label>
+        <input name="FirstName" value="@Model.FirstName" />
+    </div>
+
+
+    <div class="dateElem">
+        <label>Last Name</label>
+        <input name="LastName" value="@Model.LastName" />
+    </div>
+    <input type="submit" value="Submit" />
+}
+@*@{ Html.EndForm();}*@
+
+@using (Html.BeginForm("CreatePerson", "Home", new { id = "MyValue" }, FormMethod.Post, new { @Class = "personClass", data_fromType = "Person" }))
+{
+    <div class="dateElem">
+        <label>PersonID</label>
+        <input name="personId" value="@Model.PersonId" />
+        @Html.TextBox("PersonId", @Model.PersonId)
+        @Html.TextBox("PersonId")
+        @Html.TextBoxFor(m => m.PersonId)
+
+    </div>
+
+    <div class="dateElem">
+        <label>First Name</label>
+        <input name="FirstName" value="@Model.FirstName" />
+    </div>
+
+
+    <div class="dateElem">
+        <label>Last Name</label>
+        <input name="LastName" value="@Model.LastName" />
+    </div>
+    <input type="submit" value="Submit" />
+}
+
+
+@using (Html.BeginRouteForm("FormRoute", new { }, FormMethod.Post,
+                            new { @class = "personClass", data_formType = "person" }))
+{
+    @Html.TextBox("PersonId", @Model.PersonId)
+    @*@Html.TextBoxFor(@Model.PersonId)*@
+    @Html.TextBoxFor(m => m.PersonId)
+}

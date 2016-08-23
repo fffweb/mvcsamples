@@ -1,0 +1,35 @@
+﻿@using HelperMethods.Infrastructure
+@model string
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>IndexExternal</title>
+</head>
+<body>
+    <div> 
+        @Html.MyListArrayItems((string[])ViewBag.fruits);
+    </div>
+    <div>
+        Here is the message:
+        <p>@Model</p>
+    </div>
+    <div>
+        @Html.MyDisplayMessage(Model)
+        <p>
+        </p>
+    </div>
+    
+    <div>
+        @Html.MyDisplayMessage1(Model)
+        <p>
+        </p>
+    </div>
+
+</body>
+</html>
