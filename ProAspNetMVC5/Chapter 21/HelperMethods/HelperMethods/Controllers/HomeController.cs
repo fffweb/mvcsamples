@@ -42,7 +42,8 @@ namespace HelperMethods.Controllers {
 
         [HttpPost]
         public ActionResult CreatePerson(Person person) {
-            return View(person);
+            //return View(person);
+            return View("DisplayPerson", person);
         }
 
         public ActionResult CreatePersonM()
@@ -67,6 +68,11 @@ namespace HelperMethods.Controllers {
         {
             return View(person);
 
+        }
+
+        public ActionResult CPWholeModel()
+        {
+            return View(new Person());
         }
     }
 }

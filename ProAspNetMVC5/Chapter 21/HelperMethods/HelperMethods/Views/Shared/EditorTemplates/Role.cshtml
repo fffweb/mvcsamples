@@ -1,0 +1,3 @@
+﻿@model HelperMethods.Models.Role
+Role output
+@Html.DropDownListFor(m => m, new SelectList(Enum.GetNames(Model.GetType()),Model.ToString()))

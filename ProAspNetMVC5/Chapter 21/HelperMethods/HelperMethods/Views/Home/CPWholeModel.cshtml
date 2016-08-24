@@ -1,0 +1,77 @@
+﻿@model HelperMethods.Models.Person
+
+@{
+    ViewBag.Title = "CPWholeModel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>my person: @Html.LabelForModel()</h2>
+@using (Html.BeginRouteForm("FormRoute", new { }, FormMethod.Post, new { @class = "personClass", data_fromType = "person" }))
+{
+    <div class="column">
+        @Html.EditorForModel()
+    </div>
+<div class="column">
+    @Html.EditorFor(m => m.HomeAddress)
+</div>
+    <input type="submit" value="submit" />
+}
+
+@Html.EditorFor(m => m.PersonId)
+
+<div>testq aa @Html.EditorFor(m => m.PersonId)</div>
+@*@Html.Editorfor(m => m.PersonId)*@
+@*<h2>CPWholeModel</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Person</h4>
+            <hr />
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.PersonId)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FirstName)
+                    @Html.ValidationMessageFor(model => model.FirstName)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.LastName)
+                    @Html.ValidationMessageFor(model => model.LastName)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.BirthDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.BirthDate)
+                    @Html.ValidationMessageFor(model => model.BirthDate)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IsApproved, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.IsApproved)
+                    @Html.ValidationMessageFor(model => model.IsApproved)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
